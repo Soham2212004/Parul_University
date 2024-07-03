@@ -1,7 +1,10 @@
+
+# implement caesar cipher encryption-decryption
+
 def caesar_cipher(text, shift, decrypt=False):
     shifted_text = ""
     for char in text:
-        if char.isalpha():  # Check if the character is a letter
+        if char.isalpha(): 
             if decrypt:
                 shifted = ord(char) - shift
             else:
@@ -20,10 +23,9 @@ def caesar_cipher(text, shift, decrypt=False):
             
             shifted_text += chr(shifted)
         else:
-            shifted_text += char  # Non-alphabetic characters remain unchanged
+            shifted_text += char  
     return shifted_text
 
-# Get user input for text, mode (encryption or decryption), and shift amount
 plain_text = input("Enter text: ")
 while True:
     mode = input("Enter 'e' for encryption or 'd' for decryption: ").lower()
@@ -39,7 +41,6 @@ while True:
     except ValueError:
         print("Please enter a valid integer.")
 
-# Perform encryption or decryption based on user input
 if mode == 'e':
     encrypted_text = caesar_cipher(plain_text, shift_amount)
     print("Encrypted:", encrypted_text)
